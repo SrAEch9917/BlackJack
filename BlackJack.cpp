@@ -22,9 +22,30 @@ int determineHandValue(vector<array<string, 2>> hand) {
 
     for (int i = 0; i < hand.size(); i++) {
 
-        if (hand[i][0] == "Ace") handValue += 11;
-        if (hand[i][0] == "Queen" || hand[i][0] == "Jack" || hand[i][0] == "King") handValue += 10;
-        else handValue += stoi(hand[i][0]);
+        switch (hand[i][0][0]) {
+
+            case 'A': {
+                handValue += 11;
+                aces += 10;
+                break;
+            }
+            case '2': handValue += 2; break;
+            case '3': handValue += 3; break;
+            case '4': handValue += 4; break;
+            case '5': handValue += 5; break;
+            case '6': handValue += 6; break;
+            case '7': handValue += 7; break;
+            case '8': handValue += 8; break;
+            case '9': handValue += 9; break;
+            case '1':
+            case 'J':
+            case 'Q':
+            case 'K': handValue += 10; break;
+        }
+
+       // if (hand[i][0] == "Ace") handValue += 11;
+       // if (hand[i][0] == "Queen" || hand[i][0] == "Jack" || hand[i][0] == "King") handValue += 10;
+       // else handValue += stoi(hand[i][0]);
     }
 
     if (handValue > 21) {
@@ -190,4 +211,3 @@ int main() {
 
     cout << gameResults(playerHand, dealerHand) << endl;
 }
-
