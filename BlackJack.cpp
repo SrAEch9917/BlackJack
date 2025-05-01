@@ -29,6 +29,7 @@ int determineHandValue(vector<array<string, 2>> hand) {
                 aces += 10;
                 break;
             }
+            case '2': handValue += 2; break;
             case '3': handValue += 3; break;
             case '4': handValue += 4; break;
             case '5': handValue += 5; break;
